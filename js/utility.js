@@ -28,7 +28,8 @@ function requestPermission() {
                 console.error("Pengguna menutup kotak dialog permintaan ijin.");
                 return;
             }
-            navigator.serviceWorker.getRegistration().then(function(reg) {
+            navigator.serviceWorker.getRegistration()
+            .then(function(reg) {
                 reg.showNotification('Notifikasi diijinkan!');
             });
         });
