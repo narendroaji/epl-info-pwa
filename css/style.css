@@ -1,0 +1,48 @@
+.loader {
+    position: absolute;
+    top :0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+table {
+    border-radius: 13px;
+}
+
+section {
+    margin-top: 20px; 
+    padding: 25px; 
+    border-radius: 10px;
+}
+
+section h5 {
+    padding-bottom: 20px;
+}
+
+.logo {
+    height: 50px;
+    margin-top: 5px;
+}
+
+.short-text {
+    display: none;
+}
+
+.hide-column {
+    display: inline-block;
+}
+
+.official-color {
+    background-color: #37003c;
+}
+
+@media (max-width: 900px) {
+    .short-text { display: inline-block; }
+    .full-text { display: none; }
+    .hide-column { display: none; }
+    .logo {
+        height: 45px;
+    }
+}
