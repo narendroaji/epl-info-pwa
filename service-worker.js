@@ -44,7 +44,7 @@ var urlsToCache = [
     "/img/icon-144x144.png",
     "/img/icon-192x192.png",
     "/img/icon-512x512.png",
-    "favicon.ico",
+    "/favicon.ico",
     "https://fonts.googleapis.com/icon?family=Material+Icons",
     "https://fonts.gstatic.com/s/materialicons/v53/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2"
 ];
