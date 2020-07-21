@@ -7,10 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (isFromSaved) {
         btnSave.style.display = 'none';
-        let item = getFavoriteTeamsById();
-        btnDelete.onclick = function() {
+        getFavoriteTeamsById();
+        btnDelete.onclick = async function() {
             console.log("Tombol delete ditekan.");
-            deleteFavoriteTeam(teamId);
+            await deleteFavoriteTeam(teamId);
+            M.toast({html: 'Berhasil dihapus!'});
         }
     } else {
         btnDelete.style.display = 'none';
@@ -18,9 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
         getUpcomingMatchesByTeamId();
         btnSave.onclick = function () {
             console.log("Tombol save ditekan.");
-            item.then(function (team) {
+            item
+            .then(function (team) {
                 addFavoriteTeam(team);
-            });
+            })
+            .then(function() {
+                M.toast({html: 'Successfully added!'});
+            })
         }
     }
 });
