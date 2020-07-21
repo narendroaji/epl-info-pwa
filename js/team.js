@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         btnDelete.onclick = async function() {
             console.log("Tombol delete ditekan.");
             await deleteFavoriteTeam(teamId);
-            M.toast({html: 'Berhasil dihapus!'});
+            M.toast({html: 'Successfully deleted!'});
         }
     } else {
         btnDelete.style.display = 'none';
