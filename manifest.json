@@ -5,7 +5,7 @@
     "description": "A platform that provides a lot of information about EPL utilizing football-data.org API",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#FFFFFF",
+    "background_color": "#37003c",
     "theme_color": "#37003c",
     "icons": [
         {
