@@ -205,8 +205,8 @@ const getFavoriteTeams = () => {
 }
 
 const getFavoriteTeamsById = () => {
-    var urlParams = new URLSearchParams(window.location.search);
-    var idParam = urlParams.get("id");
+    let urlParams = new URLSearchParams(window.location.search);
+    let idParam = urlParams.get("id");
 
     getById(idParam)
     .then(data => {
