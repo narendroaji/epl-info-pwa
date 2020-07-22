@@ -51,7 +51,9 @@ var urlsToCache = [
 
 self.addEventListener("install", function(event) {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(function(cache) {
+        caches
+        .open(CACHE_NAME)
+        .then(function(cache) {
             return cache.addAll(urlsToCache);
         })
     );
@@ -61,16 +63,21 @@ self.addEventListener("fetch", function(event) {
     const BASE_URL = "https://api.football-data.org/v2";
     if (event.request.url.indexOf(BASE_URL) > -1) {
         event.respondWith(
-            caches.open(CACHE_NAME).then(function(cache) {
-                return fetch(event.request).then(function(response) {
-                cache.put(event.request.url, response.clone());
-                return response;
+            caches
+            .open(CACHE_NAME)
+            .then(function(cache) {
+                return fetch(event.request)
+                .then(function(response) {
+                    cache.put(event.request.url, response.clone());
+                    return response;
                 })
             })
         );
     } else {
         event.respondWith(
-            caches.match(event.request, { ignoreSearch: true }).then(function(response) {
+            caches
+            .match(event.request, { ignoreSearch: true })
+            .then(function(response) {
                 return response || fetch (event.request);
             })
         )
@@ -79,7 +86,9 @@ self.addEventListener("fetch", function(event) {
 
 self.addEventListener("activate", function(event) {
     event.waitUntil(
-        caches.keys().then(function(cacheNames) {
+        caches
+        .keys()
+        .then(function(cacheNames) {
             return Promise.all(
                 cacheNames.map(function(cacheName) {
                     if (cacheName != CACHE_NAME) {
@@ -93,13 +102,13 @@ self.addEventListener("activate", function(event) {
 });
 
 self.addEventListener('push', function(event) {
-    var body;
+    let body;
     if (event.data) {
         body = event.data.text();
     } else {
         body = 'Push message no payload';
     }
-    var options = {
+    let options = {
         body: body,
         icon: '/img/icon-192x192.png',
         vibrate: [100, 50, 100],
