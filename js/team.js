@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Tombol delete ditekan.");
             await deleteFavoriteTeam(teamId);
             M.toast({html: 'Successfully deleted!'});
+            btnDelete.style.display = 'none';
         }
     } else {
         btnDelete.style.display = 'none';
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .then(function() {
                 M.toast({html: 'Successfully added!'});
+                btnSave.style.display = 'none';
             })
         }
     }
